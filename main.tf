@@ -9,3 +9,11 @@ module "s3-webapp" {
   prefix = var.prefix
   version = "1.0.0"
 }
+
+resource "aws_s3_bucket_object" "webapp" {
+  acl          = "public-read"
+  key          = "index.html"
+  bucket       = aws_s3_bucket.bucket.id
+  content      = file("${path.module}/assets/index.html")
+  content_type = "text/html"
+}
