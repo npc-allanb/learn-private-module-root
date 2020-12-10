@@ -7,13 +7,5 @@ module "s3-webapp" {
   name        = var.name
   region = var.region
   prefix = var.prefix
-  version = "1.0.1"
-}
-
-resource "aws_s3_bucket_object" "webapp" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.bucket.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
+  version = "1.0.2"
 }
