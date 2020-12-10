@@ -11,7 +11,7 @@ module "s3-webapp" {
 }
 
 resource "aws_s3_bucket_object" "html_file_upload" {
-  bucket = module.s3-webapp.bucket
+  bucket = "dev-test-allan"
   key = "index.html"
   acl = "bucket-owner-full-control"
   source       = "${path.module}/assets/index.html"
