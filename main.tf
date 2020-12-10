@@ -7,11 +7,11 @@ module "s3-webapp" {
   name        = var.name
   region = var.region
   prefix = var.prefix
-  version = "1.0.2"
+  version = "1.0.5"
 }
 
 resource "aws_s3_bucket_object" "html_file_upload" {
-  bucket = "dev-test-allan"
+  bucket = module.s3-webapp.bucket.bucket
   key = "index.html"
   acl = "bucket-owner-full-control"
   source       = "${path.module}/assets/index.html"
